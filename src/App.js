@@ -15,7 +15,7 @@ import Footer from './component/footer/footer.component';
 import Spinner from './component/spinner/spinner.component';
 
 
-class App extends Component {
+class App extends Component { 
 
   state = {
     isLoading: true,
