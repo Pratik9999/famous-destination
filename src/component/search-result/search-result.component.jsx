@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import PlacePreview from '../place-preview/place-preview.component';
@@ -7,34 +7,42 @@ import Spinner from '../spinner/spinner.component';
 import { fetchCountryPlace } from '../../redux/places/places.action';
 
 
-class SearchResult extends Component {
+const SearchResult = ({ places, fetchCountryPlace, match }) => {
 
-   state = {
-      isLoading: true
-   }
+   const [isLoading, setIsLoading] = useState(true);
 
-   async componentDidMount() {
-      const { countryName } = this.props.match.params;
-      await this.props.fetchCountryPlace(countryName);
-      this.setState({ isLoading: false });
-   }
+   const { countryName } = match.params;
 
+  
 
-   renderResult = () => {
-      if(!this.state.isLoading) {
-         return this.props.places.map(place => <PlacePreview key={place.id} {...place} />);
+   useEffect(() => {
+   
+      const fetchResult = async () => {
+         await fetchCountryPlace(countryName);
+         setIsLoading(false)
+      }
+
+      fetchResult(); 
+
+      return () => setIsLoading(null);
+
+   }, [countryName, fetchCountryPlace]);
+
+   const renderResult = () => {
+      if(!isLoading) {
+         return places.map(place => <PlacePreview key={place.id} {...place} />);
       } 
 
       return (<Spinner />);
    };
 
-   render() {
-      return (
-         <div className="grid gap-10 px-6 mx-auto my-16 w-90 md:grid-cols-2 lg:grid-cols-3 sm:container">
-            {this.renderResult()}
-         </div>
-      );
-   }
+
+   return (
+      <div className="grid gap-10 px-6 mx-auto my-16 w-90 md:grid-cols-2 lg:grid-cols-3 sm:container">
+         {renderResult()}
+      </div>
+   );
+
 
    
 }

@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
 
-import Logo from '../logo/logo.component';
+import Logo from '../logo/logo.component'; 
 
 import { ReactComponent as FacebookIcon } from '../../images/facebook_icon.svg';
 import { ReactComponent as InstaIcon } from '../../images/insta_icon.svg';
@@ -32,7 +31,7 @@ const Footer = () => {
          </div>
          <div style={{ backgroundColor: '#5C5C5C' }} >
             <p className="py-4 mx-auto text-xs text-center w-90 sm:text-sm">
-               Made By Pratik Chauhan, Github Respository : <a href="#" target="_black" className="underline">Famous Desitnation</a>
+               Made By Pratik Chauhan, Github Respository : <a href="https://github.com/Pratik9999/famous-destination" target="_black" className="underline">Famous Desitnation</a>
             </p> 
          </div>
       </div>

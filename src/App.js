@@ -14,7 +14,6 @@ import SearchError from './component/search-error/search-error.component';
 import Footer from './component/footer/footer.component';
 import Spinner from './component/spinner/spinner.component';
 
-import './App.css';
 
 class App extends Component {
 

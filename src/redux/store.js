@@ -6,7 +6,11 @@ import placesReducer from './places/places.reducer';
 import placeReducer from './place/place.reducer';
 import errorReducer from './error/error.reducer';
 
-const middlewares = [logger, thunk]; 
+const middlewares = [thunk]; 
+
+if(process.env.NODE_ENV === 'development') {
+   middlewares.push(logger);
+}
 
 const rootReducers = combineReducers({
    places: placesReducer,
