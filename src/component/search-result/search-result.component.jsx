@@ -13,8 +13,6 @@ const SearchResult = ({ places, fetchCountryPlace, match }) => {
 
    const { countryName } = match.params;
 
-  
-
    useEffect(() => {
    
       const fetchResult = async () => {

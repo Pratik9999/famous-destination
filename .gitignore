@@ -2,6 +2,7 @@
 
 # dependencies
 .env
+.eslintcache
 /node_modules
 /.pnp
 .pnp.js
